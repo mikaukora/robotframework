@@ -128,7 +128,7 @@ function makeElementVisible(id) {
 }
 
 function addTestExecutionLog(main) {
-    $('body').append($('<h2>Test Execution Log</h2>'),
+    $('body').append($('<h2>Task Execution Log</h2>'),
                      $.tmpl('suiteTemplate', main));
 }
 </script>
@@ -173,7 +173,7 @@ function addTestExecutionLog(main) {
 </script>
 
 <script type="text/x-jquery-tmpl" id="errorHeaderTemplate">
-  <h2>Test Execution Errors</h2>
+  <h2>Task Execution Errors</h2>
   <table id="errors"></table>
 </script>
 
@@ -261,8 +261,8 @@ function addTestExecutionLog(main) {
     <div class="element-header closed" onclick="toggleTest('${id}')">
       <div class="element-header-left" title="{{html fullName}}">
         <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="label ${status.toLowerCase()}">TEST</span>
-        <span class="name">{{html name}}</span>
+        <span class="label ${status.toLowerCase()}">TASK</span>
+        <span class="name">{{html name.replace('Test', 'Task')}}</span>
         {{if !isCritical}}(non-critical){{/if}}
       </div>
       <div class="element-header-right" onclick="stopPropagation(event)" title="">
@@ -276,7 +276,7 @@ function addTestExecutionLog(main) {
       <table class="metadata">
         <tr>
           <th>Full Name:</th>
-          <td>{{html fullName}}</td>
+          <td>{{html fullName.replace('Test', 'Task')}}</td>
         </tr>
         {{if doc()}}
         <tr>

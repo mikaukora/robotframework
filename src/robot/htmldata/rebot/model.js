@@ -243,7 +243,7 @@ window.stats = (function () {
 
     function totalStatElem(data) {
         var stat = statElem(data);
-        stat.type = stat.label == 'Critical Tests' ? 'critical' : 'all';
+        stat.type = stat.label == 'Critical Tasks' ? 'critical' : 'all';
         return stat;
     }
 

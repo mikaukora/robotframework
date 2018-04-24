@@ -132,7 +132,7 @@ function totalDetailSelected(name) {
     renderTotalSelector(name);
     if (name) {
         renderTotalDetails(name);
-        updatePrintSelector(name == 'critical' ? 'Critical Tests' : 'All Tests');
+        updatePrintSelector(name == 'critical' ? 'Critical Tasks' : 'All Tasks');
     }
     scrollToSelector('totals', name);
 }
@@ -396,10 +396,10 @@ function hideHiddenDetailsColumns(elem) {
              class="fail">${criticalFailed} critical test{{if criticalFailed != 1}}s{{/if}} failed</a></td>
       {{else totalFailed}}
       <td><a href="#totals?critical" onclick="totalDetailSelected('critical')"
-             class="pass">All critical tests passed</a></td>
+             class="pass">All critical tasks passed</a></td>
       {{else}}
       <td><a href="#totals?all" onclick="totalDetailSelected('all')"
-             class="pass">All tests passed</a></td>
+             class="pass">All tasks passed</a></td>
       {{/if}}
     </tr>
     {{if doc()}}
@@ -480,7 +480,7 @@ function hideHiddenDetailsColumns(elem) {
 </script>
 
 <script type="text/x-jquery-tmpl" id="detailsHeaderTemplate">
-  <h2 id="${linkTarget}">Test Details</h2>
+  <h2 id="${linkTarget}">Task Details</h2>
   <ul id="detail-tabs">
     <li class="${totalTabStatus} detail-tab">
       <a href="#totals" onclick="renderTotalSelector()">Totals</a>
@@ -505,11 +505,11 @@ function hideHiddenDetailsColumns(elem) {
         <input id="radio-critical" type="radio" name="totals-radio"
                onclick="totalDetailSelected('critical')"
                {{if selected == 'critical'}}checked="checked"{{/if}}>
-        <label for="radio-critical">Critical Tests</label><br>
+        <label for="radio-critical">Critical Tasks</label><br>
         <input id="radio-all" type="radio" name="totals-radio"
                onclick="totalDetailSelected('all')"
                {{if selected == 'all'}}checked="checked"{{/if}}>
-        <label for="radio-all">All Tests</label>
+        <label for="radio-all">All Tasks</label>
       </td>
       <td id="print-selector"></td>
     </tr>
@@ -566,7 +566,7 @@ function hideHiddenDetailsColumns(elem) {
         <td><input id="search-suite" type="text" value="${suite}"></td>
       </tr>
       <tr class="selector middle-selector">
-        <th><label for="search-test">Test:</label></th>
+        <th><label for="search-test">Task:</label></th>
         <td><input id="search-test" type="text" value="${test}"></td>
       </tr>
       <tr class="selector middle-selector">
@@ -619,14 +619,14 @@ function hideHiddenDetailsColumns(elem) {
               <tr>
                 <td>Suite</td>
                 <td>
-                  Tests in matching suites are included. The pattern can match
+                  Tasks in matching suites are included. The pattern can match
                   either suite's name or its full name that contains also
                   parent suite names.
                 </td>
                 <td>My Suite<br>Root.Parent.Sui*</td>
               </tr>
               <tr>
-                <td>Test</td>
+                <td>Task</td>
                 <td>
                   Matching tests are included. The pattern can match either
                   test's name or its full name that contains also parent
@@ -637,14 +637,14 @@ function hideHiddenDetailsColumns(elem) {
               <tr>
                 <td>Include</td>
                 <td>
-                  Tests that contain matching tags are included.
+                  Tasks that contain matching tags are included.
                 </td>
                 <td>smoke<br>bug-*</td>
               </tr>
               <tr>
                 <td>Exclude</td>
                 <td>
-                  Tests that contain matching tags are not included.
+                  Tasks that contain matching tags are not included.
                 </td>
                 <td>slow<br>feature-4?</td>
               </tr>

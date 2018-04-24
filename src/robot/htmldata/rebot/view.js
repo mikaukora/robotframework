@@ -24,7 +24,7 @@ function parseTemplates() {
 
 function setTitle(suiteName, type) {
     var givenTitle = window.settings.title;
-    var title = givenTitle ? givenTitle : suiteName + " Test " + type;
+    var title = givenTitle ? givenTitle : suiteName + " Task " + type;
     document.title = util.unescape(title);
 }
 
@@ -71,7 +71,7 @@ function addStatistics() {
         '<th class="stats-col-elapsed">Elapsed</th>' +
         '<th class="stats-col-graph">Pass / Fail</th>';
     var statTable =
-        '<h2>Test Statistics</h2>' +
+        '<h2>Task Statistics</h2>' +
         '<table class="statistics" id="total-stats"><thead><tr>' +
         '<th class="stats-col-name">Total Statistics</th>' + statHeaders +
         '</tr></thead></table>' +
@@ -89,10 +89,10 @@ function addStatistics() {
 
 function addTooltipsToElapsedTimes() {
     $('.stats-col-elapsed').attr('title',
-        'Total execution time of these test cases. ' +
+        'Total execution time of these RPA cases. ' +
         'Excludes suite setups and teardowns.');
     $('#suite-stats').find('.stats-col-elapsed').attr('title',
-        'Total execution time of this test suite.');
+        'Total execution time of this task suite.');
 }
 
 function enableStatisticsSorter() {
@@ -164,10 +164,10 @@ $.template('statColumnsTemplate',
 );
 
 $.template('suiteStatusMessageTemplate',
-    '${critical} critical test, ' +
+    '${critical} critical task, ' +
     '${criticalPassed} passed, ' +
     '<span class="{{if criticalFailed}}fail{{else}}pass{{/if}}">${criticalFailed} failed</span><br>' +
-    '${total} test total, ' +
+    '${total} tasks total, ' +
     '${totalPassed} passed, ' +
     '<span class="{{if totalFailed}}fail{{else}}pass{{/if}}">${totalFailed} failed</span>'
 );
